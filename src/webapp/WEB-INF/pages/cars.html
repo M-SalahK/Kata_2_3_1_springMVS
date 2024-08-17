@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="ru">
+<head>
+    <title>Мощная машина</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+<table style="border-collapse: collapse; border: 1px solid black; border-spacing: 0;">
+    <tr>
+        <th style="padding: 30px; border: 1px solid black;">Имя</th>
+        <th style="padding: 30px; border: 1px solid black;">Год выпуска</th>
+        <th style="padding: 30px; border: 1px solid black;">Л.С</th>
+    </tr>
+    <tr th:each="car : ${cars}">
+        <td style="padding: 30px; border: 1px solid black;" th:text="${car.model}">Имя</td>
+        <td style="padding: 30px; border: 1px solid black;" th:text="${car.year}">Год выпуска</td>
+        <td style="padding: 30px; border: 1px solid black;" th:text="${car.horsepower}">Л.С</td>
+    </tr>
+</table>
+<blockquote>
+    <p>Заслужил зачет, Я думаю.</p>
+    <footer>— Сонгвивер РевоВанДерКукичМукичЛюциусКиборгЭнивейAaa....</footer>
+</blockquote>
+</body>
+</html>
