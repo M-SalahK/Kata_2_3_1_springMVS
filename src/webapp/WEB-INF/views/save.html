@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Добавить пользователя</title>
+    <style>
+        body {
+            background-image: url('https://wallpapercave.com/wp/wp7250161.png');
+            background-size: cover;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+
+        .form-container {
+            background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQN-AGLMTytz2ZO7i_i42LCnOFkbg4w6kTPhw&s');
+            background-size: cover;
+            background-repeat: no-repeat;
+            border-radius: 15px;
+            padding: 20px;
+            width: 300px;
+            margin: auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        input[type="text"], input[type="number"] {
+            width: 100%;
+            height: 30px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+        input[type="submit"], .back-button {
+            background-color: #4CAF50;
+            color: #ffffff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"]:hover, .back-button:hover {
+            background-color: #45a049;
+        }
+
+        .back-button {
+            background-color: #999;
+            text-decoration: none;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+<h1>Добавить пользователя</h1>
+<div class="form-container">
+    <form th:method="POST" th:action="@{/}" th:object="${user}">
+        <div>
+            <label for="username" style="display: block; margin-bottom: 10px;">Имя:</label>
+            <input type="text" th:field="*{name}" id="username" required/>
+        </div>
+        <div>
+            <label for="age" style="display: block; margin-bottom: 10px;">Возраст:</label>
+            <input type="number" th:field="*{age}" id="age" required/>
+        </div>
+        <input type="submit" value="Добавить пользователя"/>
+        <a th:href="@{/index}" class="back-button">Назад</a>
+    </form>
+</div>
+</body>
+</html>

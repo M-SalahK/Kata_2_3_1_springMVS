@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Выберите пользователя для редактирования</title>
+    <style>
+        body {
+            background-image: url('https://wallpapercave.com/wp/wp7250161.png');
+            background-size: cover;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h2 {
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+
+        .user-list {
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 15px;
+            padding: 20px;
+            width: 400px;
+            margin: auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .user-item {
+            margin: 15px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .edit-button {
+            padding: 5px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            color: white;
+            background-color: #007BFF;
+            margin-left: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .edit-button:hover {
+            background-color: #0056b3;
+        }
+
+        .no-users {
+            color: #ffcc00;
+            font-size: 18px;
+            margin: 20px 0;
+        }
+
+        .add-user-button {
+            display: block;
+            width: 200px;
+            margin: 20px auto;
+            background-color: #28A745;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .add-user-button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+<h2>Пользователи</h2>
+<div class="user-list">
+    <ul>
+        <li th:if="${#lists.isEmpty(users)}" class="no-users">Пользователи отсутствуют</li>
+        <li th:each="user : ${users}" class="user-item">
+            <div>
+                <span th:text="${user.name}">Имя</span>
+            </div>
+            <div>
+                <span th:text="${user.age}">Возраст</span>
+                <a th:href="@{/update/{id}(id=${user.getId()})}" class="edit-button">Редактировать</a>
+            </div>
+        </li>
+    </ul>
+</div>
+<a th:href="@{/save}" class="add-user-button">Добавить пользователя</a>
+</body>
+</html>
