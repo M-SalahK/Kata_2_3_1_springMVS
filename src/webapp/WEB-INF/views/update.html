@@ -76,7 +76,7 @@
 <body>
 <h1>Редактировать пользователя</h1>
 <div class="form-container">
-    <form th:method="POST" th:action="@{/update/{id}(id=${user.getId()})}" th:object="${user}">
+    <form th:method="POST" th:action="@{/update/(id=${user.getId()})}" th:object="${user}">
         <div>
             <label for="username">Имя:</label>
             <input type="text" th:field="*{name}" id="username" required/>
@@ -87,10 +87,11 @@
         </div>
         <input type="submit" value="Сохранить изменения"/>
     </form>
-    <form th:action="@{/delete/{id}(id=${user.id})}" method="post" onsubmit="return confirm('Удалить пользователя?');">
+    <form th:action="@{/delete/(id=${user.id})}" method="post" onsubmit="return confirm('Удалить пользователя?');">
         <button type="submit" class="delete-button">Удалить</button>
     </form>
     <a th:href="@{/index}" class="back-button">Назад</a>
 </div>
+
 </body>
 </html>

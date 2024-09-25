@@ -90,7 +90,7 @@
             </div>
             <div>
                 <span th:text="${user.age}">Возраст</span>
-                <a th:href="@{/update/{id}(id=${user.getId()})}" class="edit-button">Редактировать</a>
+                <a th:href="@{/update/(id=${user.getId()})}" class="edit-button">Редактировать</a>
             </div>
         </li>
     </ul>
